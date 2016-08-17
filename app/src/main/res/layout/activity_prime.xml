@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.example.dell.primecheck.PrimeActivity"
+    android:weightSum="1"
+    android:background="#d1f7ed">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Check If the number Given Is Prime Or Not :"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.11"
+        android:textColor="#a46add" />
+
+    <TextView
+        android:id="@+id/textViewer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Click Here To Get The Number"
+        android:onClick="generate"
+        android:textColor="#0779af" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/TrueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YES"
+            android:textColor="#4a5381"
+            android:drawableLeft="@drawable/arrow_left"
+            style="@android:style/Widget.Material.Button.Colored" />
+
+        <Button
+            android:id="@+id/FalseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO"
+            android:textColor="#4a5381"
+            android:drawableRight="@drawable/arrow_right"
+            style="@android:style/Widget.Material.Button.Colored" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/next_button"
+        android:onClick="generate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:drawableLeft="@drawable/arrow_left"
+        android:drawableRight="@drawable/arrow_right"
+        />
+</LinearLayout>

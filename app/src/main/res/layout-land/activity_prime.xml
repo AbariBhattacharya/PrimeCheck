@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1f7ed">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical|center_horizontal">
+
+        <Button
+            android:id="@+id/TrueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YES"
+            android:layout_gravity="center"
+            android:textColor="#4a5381"
+            android:drawableLeft="@drawable/arrow_left"
+            style="@android:style/Widget.Material.Button.Colored" />
+
+        <Button
+            android:id="@+id/FalseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO"
+            android:textColor="#4a5381"
+            android:layout_gravity="right|center_vertical"
+            android:drawableRight="@drawable/arrow_right"
+            style="@android:style/Widget.Material.Button.Colored" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_button"
+        android:onClick="generateLand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:gravity="bottom"
+        android:layout_gravity="right|bottom"
+        android:drawableLeft="@drawable/arrow_left"
+        android:drawableRight="@drawable/arrow_right"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Check If the number Given Is Prime Or Not :"
+        android:id="@+id/textView2"
+        android:layout_gravity="left|top"
+        android:textColor="#a46add" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:text="Click Here To Get The Number"
+        android:onClick="generateLand"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="#0779af" />
+
+</FrameLayout>
