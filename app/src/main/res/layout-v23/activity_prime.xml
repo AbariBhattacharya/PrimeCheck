@@ -41,7 +41,7 @@
             android:id="@+id/TrueButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="YES"
+            android:text="@string/yes"
             android:textColor="#d4d8eb"
             style="@android:style/Widget.Material.Button.Colored"
             android:drawableLeft="@drawable/arrow_left"/>
@@ -50,7 +50,7 @@
             android:id="@+id/FalseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NO"
+            android:text="@string/no"
             android:textColor="#d4d8eb"
             style="@android:style/Widget.Material.Button.Colored"
             android:drawableRight="@drawable/arrow_right"/>
