@@ -33,7 +33,7 @@
 
     <Button
         android:id="@+id/next_button"
-        android:onClick="generateLand"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"
@@ -58,7 +58,7 @@
         android:paddingTop="16dp"
         android:paddingLeft="16dp"
         android:text="Click Here To Get The Number"
-        android:onClick="generateLand"
+       android:id="@id/textViewer"
         android:layout_gravity="left|center_vertical"
         android:textColor="#0779af" />
 

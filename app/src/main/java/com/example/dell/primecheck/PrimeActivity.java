@@ -11,15 +11,68 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class PrimeActivity extends AppCompatActivity {
-
+    static final String NUM_GEN = "numberGen";
+    //static final String CHECK_ANS="ansPrime";
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mNextButton;
+    private TextView mText;
+    private String textString;
+    public int number;
+    public boolean flag;
 
-    private static final String TAG = "QuizActivity";
+    private static final String TAG = "PrimeActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_prime);
+        Log.d(TAG,"in OnCreate function");
+        mText = (TextView)findViewById(R.id.textViewer);
+        if (savedInstanceState != null) {
+            System.out.println("saved instance is not null");
+           number = savedInstanceState.getInt(NUM_GEN);
+            System.out.println("number is: " +number);
+            String myString = String.valueOf(number);
+            textString = myString;
+            mText.setText(myString);
+            //flag= savedInstanceState.getBoolean(CHECK_ANS);
+            }
+
+       // mText = (TextView)findViewById(R.id.textViewer);
+        mText.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Random r = new Random();
+                number = r.nextInt(1000)+1;
+                //TextView myText = (TextView)findViewById(R.id.textViewer);
+                String myString = String.valueOf(number);
+                textString = myString;
+                mText.setText(myString);
+                System.out.println(number);
+            }
+        }
+        );
+
+
+
+
+        mNextButton = (Button)findViewById(R.id.next_button);
+        mNextButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Random r = new Random();
+                number = r.nextInt(1000)+1;
+                TextView myText = (TextView)findViewById(R.id.textViewer);
+               String myString = String.valueOf(number);
+                myText.setText(myString);
+                System.out.println(number);
+            }
+        });
+
+
+
+
 
         mTrueButton = (Button) findViewById(R.id.TrueButton);
         mTrueButton.setOnClickListener(new View.OnClickListener(){
@@ -27,11 +80,11 @@ public class PrimeActivity extends AppCompatActivity {
             public void onClick(View view){
                 TextView myText = (TextView)findViewById(R.id.textViewer);
                 int num=Integer.parseInt(myText.getText().toString());
-                boolean flag = checkPrime(num);
+                flag = checkPrime(num);
                 if(flag==false)
-                    Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Sorry, Incorrect!", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Well Done!", Toast.LENGTH_SHORT).show();
 
 
                 Log.d(TAG, "Clicked True");
@@ -45,12 +98,12 @@ public class PrimeActivity extends AppCompatActivity {
             public void onClick(View view){
                 TextView myText = (TextView)findViewById(R.id.textViewer);
                 int num=Integer.parseInt(myText.getText().toString());
-                boolean flag = checkPrime(num);
+                flag = checkPrime(num);
                 Log.d(TAG, "after flag");
                 if(flag==false)
-                    Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Well Done!", Toast.LENGTH_LONG).show();
                 else
-                    Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Sorry, Incorrect!", Toast.LENGTH_LONG).show();
 
 
                 Log.d(TAG, "Clicked False");
@@ -61,12 +114,12 @@ public class PrimeActivity extends AppCompatActivity {
 
     private boolean checkPrime(int num) {
         int f=0;
-        int number=num;
+        int n=num;
         boolean a=true;
-        for(int i=2;i<number;i++){
-            if(number%i==0)
+        for(int i=2;i<n;i++){
+            if(n%i==0)
             {
-                System.out.println(number+" is not a Prime Number");
+                System.out.println(n+" is not a Prime Number");
                 f = 1;
                 a = false;
                 System.out.println("a in not a prime: " +a);
@@ -75,16 +128,16 @@ public class PrimeActivity extends AppCompatActivity {
             }
         }
         if(f==0) {
-            System.out.println(number + " is a Prime Number");
+            System.out.println(n + " is a Prime Number");
             a = true;
             System.out.println("a in prime: " + a);
         }
 return a;
     }
 
-    public void generate(View view) {
+  /* public void generate(View view) {
         Random r = new Random();
-        int number = r.nextInt(1000)+1;
+        number = r.nextInt(1000)+1;
         TextView myText = (TextView)findViewById(R.id.textViewer);
         String myString = String.valueOf(number);
         myText.setText(myString);
@@ -93,17 +146,19 @@ return a;
 
     public void generateLand(View view) {
         Random r = new Random();
-        int number = r.nextInt(1000)+1;
+        number = r.nextInt(1000)+1;
         TextView myText = (TextView)findViewById(R.id.textViewer);
         String myString = String.valueOf(number);
         myText.setText(myString);
 
-    }
+    }*/
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
-        super.onSaveInstanceState(savedInstanceState);
 
+       savedInstanceState.putInt(NUM_GEN,number);
+        //savedInstanceState.putBoolean(CHECK_ANS,flag);
+        super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "Inside onSaveInstance");
     }
 
@@ -140,6 +195,7 @@ return a;
         super.onDestroy();
         Log.d(TAG, "Inside OnDestroy");
     }
+
 
 
 }

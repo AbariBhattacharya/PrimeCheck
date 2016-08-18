@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Click Here To Get The Number"
-        android:onClick="generate"
+
         android:textColor="#0779af" />
 
     <LinearLayout
@@ -56,7 +56,7 @@
     </LinearLayout>
     <Button
         android:id="@+id/next_button"
-        android:onClick="generate"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"
