@@ -8,15 +8,31 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PrimeActivity"
-                  android:configChanges="orientation">
-
+        <activity
+            android:name=".PrimeActivity"
+            android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".HintActivity"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="com.example.dell.primecheck.HintActivity" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".CheatActivity">
+            <intent-filter>
+                <action android:name="com.example.dell.primecheck.CheatActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
