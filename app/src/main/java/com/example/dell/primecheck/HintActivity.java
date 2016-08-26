@@ -34,12 +34,12 @@ public class HintActivity extends AppCompatActivity {
         mShowHintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                flag=2;
+                //flag=2;
                 TextView myText = (TextView) findViewById(R.id.hinttext);
                 String myString = "A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.";
                 myText.setText(myString);
-                Intent intent = new Intent();
-                intent.putExtra("anything",flag);
+               Intent intent = new Intent();
+                intent.putExtra("anything",2);
                 setResult(RESULT_OK,intent);
                 //finish();
 

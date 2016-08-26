@@ -33,11 +33,11 @@ public class CheatActivity extends AppCompatActivity {
                 String myString = "You have cheated";
                 //String myString = String.valueOf(number);
                // textString = myString;
-               // mText.setText(myString);
+               //myText.setText(myString);
                 myText.setText(myString);
-                Intent intent = new Intent();
-                intent.putExtra("anything",flag);
-                setResult(RESULT_FIRST_USER,intent);
+                Intent intentc = new Intent();
+                intentc.putExtra("anycheat",flag);
+                setResult(RESULT_OK,intentc);
 
                 //finish();
 

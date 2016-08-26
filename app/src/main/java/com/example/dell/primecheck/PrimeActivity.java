@@ -14,6 +14,8 @@ import java.util.Random;
 
 public class PrimeActivity extends AppCompatActivity {
     static final String NUM_GEN = "numberGen";
+    static final int REQUEST_CODE_HINT= 100;
+    static final int REQUEST_CODE_CHEAT= 200;
     //static final String CHECK_ANS="ansPrime";
     private Button mTrueButton;
     private Button mFalseButton;
@@ -68,7 +70,7 @@ public class PrimeActivity extends AppCompatActivity {
                 Intent intent = new Intent("com.example.dell.primecheck.HintActivity");
                 intent.putExtra("prime", mText.getText().toString());
 
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivityForResult(intent, REQUEST_CODE_HINT);
             }
         });
 
@@ -76,9 +78,9 @@ public class PrimeActivity extends AppCompatActivity {
         mCheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("com.example.dell.primecheck.CheatActivity");
-                intent.putExtra("prime number", number);
-                startActivityForResult(intent, REQUEST_CODE);
+                Intent intentc = new Intent("com.example.dell.primecheck.CheatActivity");
+                intentc.putExtra("prime number", number);
+                startActivityForResult(intentc, REQUEST_CODE_CHEAT);
 
             }
         });
@@ -201,16 +203,15 @@ public class PrimeActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         //int mainFlag=getIntent().getIntExtra()
-        if (check == 1) {
-            Toast.makeText(getApplicationContext(), "Hey you got a hint! Now try yourself", Toast.LENGTH_SHORT).show();
+       // if (check == 1) {
+         /*   Toast.makeText(getApplicationContext(), "Hey you got a hint! Now try yourself", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Inside OnREsume:for hint");
 
         }
         if (check == 2) {
             Toast.makeText(getApplicationContext(), "You have cheated..Very Bad!", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Inside OnREsume:for cheat");
-        }
-    }
+        }*/    }
 
 
     @Override
@@ -229,16 +230,36 @@ public class PrimeActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE)
-            if (resultCode == RESULT_OK) {
-                check = 1;
-            }
-        if (resultCode == RESULT_FIRST_USER) {
 
-            check = 2;
+        if(requestCode==REQUEST_CODE_HINT) {
+            if (resultCode == RESULT_OK) {
+                int a= data.getIntExtra("anything",-1);
+                System.out.println(a);
+                if(a==2){
+
+                    Toast.makeText(getApplicationContext(), "Hey you got a hint! Now try yourself", Toast.LENGTH_SHORT).show();
+                //check = 1;
+                }
+                System.out.println("rcode HINT");
+
+            }
+
+
+        }
+        if(requestCode==REQUEST_CODE_CHEAT) {
+            if (resultCode == RESULT_OK) {
+                int b=data.getIntExtra("anycheat",-1);
+                if (b==3){
+                    Toast.makeText(getApplicationContext(), "You have cheated..Very Bad!", Toast.LENGTH_SHORT).show();
+                }
+                //check = 2;}
+                System.out.println("rcode CHEAT");
+            }
+
+
         }
 
 
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
